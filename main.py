@@ -6,7 +6,7 @@ Game
 
 
 '''
-
+from PIL import Image
 print("Metro 2033")
 print("The untold stories of Khan")
 
@@ -15,25 +15,36 @@ play = input("Press x to play>> ")
 
 start = False
 
-
+#Start button
 if play == ("x"):
   start = True
 
-
+#First "Scene"
 if (start):
   print("I was in the metro again, I was lost, I need to find the nearest station")
 
 metroMap1 = ["Follow the rail tracks", "Go above ground", "Swim through the sewers" ]
 
 
-userInput1 = input(metroMap1)
+#Tells which map your are in
+map1 = False
+map2 = False
+map3 = False
+
+
+
+
+
+
+userInput1 = input("Follow the rail tracks, Go above ground, Swim through the sewers >>")
 
 def metro(metroMap1):
-  if userInput1 == ("Follow the rail tracks"):
-    print("I followed the trail, the only thing that you can hear are my footsteps. There is a legend that if you listen close enough you can hear the cries of souls telling you to go back. Up ahead you hear a bell, that is the same sound you hear if a station was opening a gate. I travelled further to figure out it is a live station with people! Hopefully they would let me in.")
-  
-
-
+  if userInput1 == (metroMap1[0]):
+    print("\n I followed the trail, the only thing that you can hear are my footsteps. There is a legend that if you listen close enough you can hear the cries of souls telling you to go back. Up ahead you hear a bell, that is the same sound you hear if a station was opening a gate. I travelled further to figure out it is a live station with people! Hopefully they would let me in.")
+    map1 = True
+    map = Image.open('map1.jpg')
+    map.show()
+metro(metroMap1)
 
 
 
