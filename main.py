@@ -50,7 +50,7 @@ if userInput1 == (mapPick[0]):
   print("\n I followed the trail, the only thing that you can hear are my footsteps. There is a legend that if you listen close enough you can hear the cries of souls telling you to go back. Up ahead you hear a bell, that is the same sound you hear if a station was opening a gate. I travelled further to figure out it is a live station with people! Hopefully they would let me in.")
 
 
-  #_____________________________COMBAT PART____________________________  
+  #_____________________________COMBAT PART_______________________________  
   #Tells whether mutant_1 is alive. True = Dead
   
   mutant_1 = False
@@ -61,9 +61,12 @@ if userInput1 == (mapPick[0]):
   print("Mutant Damage:", mutant_1_attack)
   health -= mutant_1_attack
   print ("Your Health", health)
+  if (mutant_1 <= 0):
+    mutant_1 = True
   
+
    #_____________________________Map 2 Transition____________________________  
-    # Map1 = True
+  
   if (mutant_1):
     continueStation = input("\n Do I continue to the next station y/n >> ")      
     if continueStation == ("y"):
