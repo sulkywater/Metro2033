@@ -40,7 +40,7 @@ mapPick = ["Follow the rail tracks", "Go above ground", "Swim through the sewers
 
   
 #Inventory
-inventory = ["Knife", ]
+inventory = ["Knife", "Tikhar", ("Ai-2 Cheesepacket (Heal)") ]
   
   
   
@@ -51,18 +51,28 @@ if userInput1 == (mapPick[0]):
 
 
   #_____________________________COMBAT PART_______________________________  
-  #Tells whether mutant_1 is alive. True = Dead
+  #Tells whether mutant_1 is alive. True = Alive
+  mutant_1 = True
   
-  mutant_1 = False
+  while mutant_1:
+    item = input("Choose and item from your inventory >> ")
+    
 
- 
-  mutant_1_attack = random.randint(1,2)
-  print("\n A dark figure approaches you. It is a mutant creature, 2 HP, 2 Dmg")    
-  print("Mutant Damage:", mutant_1_attack)
-  health -= mutant_1_attack
-  print ("Your Health", health)
-  if (mutant_1 <= 0):
-    mutant_1 = True
+  
+    mutant_1_attack = random.randint(1,2)
+    print("\n A dark figure approaches you. It is a mutant creature, 2 HP, 2 Dmg")    
+    print("Mutant Damage:", mutant_1_attack)
+    health -= mutant_1_attack
+    print ("Your Health", health)
+    if (mutant_1 <= 0):
+      mutant_1 = False
+    if item in inventory:
+      if item == "Knife":
+        player_attack = random.randint(0,5)
+
+    mutant_1 -= player_attack
+
+    
   
 
    #_____________________________Map 2 Transition____________________________  
