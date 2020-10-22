@@ -32,15 +32,15 @@ map3 = False
 
 # Health points
 health = 10
-mutant_1 = 2
+mutant_1 = 10
 
 # User picks direction
-userInput1 = input("Follow the rail tracks, Go above ground, Swim through the sewers >>")
-mapPick = ["Follow the rail tracks", "Go above ground", "Swim through the sewers" ]
+userInput1 = input("Follow the rail tracks Yes/No >>")
+mapPick = ["Yes"]
 
   
 #Inventory
-inventory = ["Knife", "Tikhar", ("Ai-2 Cheesepacket (Heal)") ]
+inventory = ["Knife", "Tikhar", "Ai-2" ]
   
   
   
@@ -51,27 +51,48 @@ if userInput1 == (mapPick[0]):
 
 
   #_____________________________COMBAT PART_______________________________  
-  #Tells whether mutant_1 is alive. True = Alive
-  mutant_1 = True
-  
+  #Tells whether mutant_1 is alive
+  mutant_1_Loop = True
+  mutant_1_Dead = False
+  print("\n A dark figure approaches you. It is a mutant creature")    
   while mutant_1:
+    print (inventory)
     item = input("Choose and item from your inventory >> ")
     
 
   
-    mutant_1_attack = random.randint(1,2)
-    print("\n A dark figure approaches you. It is a mutant creature, 2 HP, 2 Dmg")    
+    mutant_1_attack = random.randint(1,4)
+   
     print("Mutant Damage:", mutant_1_attack)
+    item = input("Choose and item from your inventory >> ")
     health -= mutant_1_attack
     print ("Your Health", health)
+    
     if (mutant_1 <= 0):
-      mutant_1 = False
+      mutant_1_Loop = False
+      mutant_1_Dead = True
+      break
+    if (health <= 0):
+      print ("You lost")
+      break
     if item in inventory:
       if item == "Knife":
         player_attack = random.randint(0,5)
+        print("Your Damage", player_attack)
+        mutant_1 -= player_attack
+      if item == "Ai-2":
+        health += 3
+        print("You healed")
+      if item == "Tikhar":
+        print ("Your item broke Mutant +2 health")
+        mutant_1 += 2
+   
 
-    mutant_1 -= player_attack
+if mutant_1_Dead:
+  print ("You Win the mutant died")
 
+    
+    
     
   
 
